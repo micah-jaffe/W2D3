@@ -42,6 +42,29 @@ RSpec.describe do
     end
   end
   
+  describe "#stock_picker" do 
+    subject(:stocks) { [10, 5, 2, 29, 31]}   #res_arr = [2,4]
+    
+    it "returns the most profitable pair" do
+        expect(stock_picker(stocks)).to eq([2,4])
+    end
+    
+    it "returns array indices in ascending order" do
+      days = stock_picker(stocks)
+      expect(days).to eq(days.sort)
+    end
+    
+    it "returns the first pair in the case of a tie" do
+      arr = [1, 3, 4, 5, 7]
+      expect(stock_picker(arr)).to eq([0, 1])
+    end
+    
+    it "raises an error if argument length less than two days" do
+      arr = [5]
+      expect { stock_picker(arr) }.to raise_error("Array should be at least 2 elements")
+    end
+  end
+  
   describe Array do 
     describe '#two_sum' do
       subject(:arr) { [-1,0,2,-2,1] }
