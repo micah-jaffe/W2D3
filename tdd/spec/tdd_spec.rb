@@ -30,8 +30,9 @@ RSpec.describe do
         expect(truth).to be_truthy
       end
       
-      it "returns nil if no pairs are found" do
-        
+      it "returns empty array if no pairs are found" do
+        new_array = [1, 2, 3, 4]
+        expect(new_array.two_sum).to be_empty
       end
     end
     
