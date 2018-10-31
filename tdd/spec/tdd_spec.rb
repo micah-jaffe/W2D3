@@ -13,6 +13,35 @@ RSpec.describe do
     end
   end
   
+  describe '#my_transpose' do 
+    it "returns the transposed array" do
+      arr = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8]
+        ]
+      
+      res = [
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8]
+        ]
+      expect(my_transpose(arr)).to match_array(res)
+    end
+    
+    it "returns empty array if passed empty array" do
+      expect(my_transpose([])).to eq([])
+    end
+    
+    it "raises ArgumentError if not passed nxn array" do
+      arr = [
+        [5,3,2],
+        [1,2]
+      ]
+      expect {my_transpose(arr)}.to raise_error(ArgumentError)
+    end
+  end
+  
   describe Array do 
     describe '#two_sum' do
       subject(:arr) { [-1,0,2,-2,1] }
