@@ -29,6 +29,7 @@ RSpec.describe do
       it "does not allow you select an empty peg as start" do
         expect { game.move(1, 0) }.to raise_error("Empty peg")
       end
+      
     end
     
     describe '#won?' do
