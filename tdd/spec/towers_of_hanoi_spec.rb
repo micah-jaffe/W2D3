@@ -1,4 +1,5 @@
 require 'towers_of_hanoi'
+require 'byebug'
 
 RSpec.describe do 
   describe TowersOfHanoi do 
@@ -33,6 +34,24 @@ RSpec.describe do
     end
     
     describe '#won?' do
+      it "returns true on a won board" do
+        game.move(0,2)
+        game.move(0,1)
+        game.move(2,1)
+        game.move(0,2)
+        game.move(1,0)
+        game.move(1,2)
+        game.move(0,2)
+        expect(game).to be_won
+      end
+      
+      it "returns false on a not won board" do
+        game.move(0,2)
+        game.move(0,1)
+        game.move(2,1)
+        game.move(0,2)
+        expect(game).to_not be_won
+      end
     end
   end
 end
