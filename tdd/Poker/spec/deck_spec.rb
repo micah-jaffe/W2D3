@@ -7,7 +7,7 @@ RSpec.describe do
     describe "#initialize" do
       it "creates a standard 52 card deck" do
         expect(deck.cards.length).to eq(52)
-        expect(deck.cards.all? {|card| card.is_a?(Card)}).to be_true
+        expect(deck.cards.all? {|card| card.is_a?(Card)}).to be true
       end
     end
     
