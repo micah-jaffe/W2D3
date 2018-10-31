@@ -55,7 +55,7 @@ RSpec.describe do
     end
     
     it "returns the first pair in the case of a tie" do
-      arr = [1, 3, 4, 5, 7]
+      arr = [1, 3, 1, 3]
       expect(stock_picker(arr)).to eq([0, 1])
     end
     
