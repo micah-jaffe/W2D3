@@ -12,14 +12,38 @@ RSpec.describe do
     end
     
     describe "::populate" do
+      it "returns an array of 52 elements" do
+        expect(Deck.populate_standard_deck.length).to eq(52)
+      end
       
+      it "each array element is an instance of Card class" do
+        standard_deck = Deck.populate_standard_deck
+        expect(standard_deck.all? {|card| card.is_a?(Card)}).to be true
+      end
     end
     
     describe "#shuffle" do
-      
+      it "shuffles the cards" do
+        expect(deck.shuffle).to_not eq(deck.cards)
+      end
     end
     
     describe "#deal" do 
+      context "initial deal" do
+        let(:player) {double("player", cards: [])}
+        it "gives 5 cards to each player when game starts" do
+          # allow(player).to receive(:)
+          expect(deck.deal(player)).to eq(5)
+          # expect(player.cards.length).to eq(5)
+        end
+      end
+      
+      context "deal during game" do
+        let(:player) {double("player", cards: [4, 8])}
+        it "gives 3 cards to player after player discards" do
+          
+        end  
+      end
       
     end
     
