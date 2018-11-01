@@ -32,16 +32,18 @@ RSpec.describe do
       context "initial deal" do
         let(:player) {double("player", cards: [])}
         it "gives 5 cards to each player when game starts" do
-          # allow(player).to receive(:)
-          expect(deck.deal(player)).to eq(5)
-          # expect(player.cards.length).to eq(5)
+          allow(player).to receive(:receive_hand)
+          deck.deal(player)
+          expect(deck.cards.length).to eq(47)
         end
       end
       
       context "deal during game" do
         let(:player) {double("player", cards: [4, 8])}
         it "gives 3 cards to player after player discards" do
-          
+          allow(player).to receive(:receive_hand)
+          deck.deal(player)
+          expect(deck.cards.length).to eq(49)
         end  
       end
       

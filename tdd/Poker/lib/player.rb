@@ -6,4 +6,8 @@ class Player
     @cards = []
   end
   
+  def receive_hand(hand)
+    @cards.concat(hand)
+  end
+  
 end

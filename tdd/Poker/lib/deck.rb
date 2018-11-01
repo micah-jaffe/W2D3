@@ -24,14 +24,9 @@ class Deck
   end
   
   def deal(player)
-    # raise ArgumentError unless player.is_a?(Player)
-    if player.cards.length == 0 
-      5.times { player.cards << @cards.pop }
-      return 5
-    else
-      3.times { player.cards << @cards.pop }
-      return 3
-    end
+    hand = []
+    (5 - player.cards.length).times { hand << @cards.pop }
+    player.receive_hand(hand)
   end
   
 end
